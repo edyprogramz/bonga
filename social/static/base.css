@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    border-bottom: 2px solid rgb(196, 196, 196);
+    /* padding: 20px; */
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-left input{
+    padding: 10px;
+}
+.nav-right{
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: center;
+}
+.nav-right li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 30px;
+}
+.nav-center{
+    border: 2px solid palevioletred;
+    margin-top: -50px;
+}
+.links{
+    text-decoration: none;
+    color: black;
+}
+.links i{
+    display: block;
+    color: black;
+    font-size: 30px;
+}
+.nav-img{
+    height: 60px;
+    width: 60px;
+    border: 2px solid black;
+    /* position: absolute; */
+    border-radius: 50%;
+    overflow: hidden;
+}
+.nav-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.upload-btn{
+    padding: 10px;
+    background-color: black;
+    color: antiquewhite;
+    display: inline-block;
+}
+.upload-btn input[type="file"] {
+    display: none;
+}
+.nav-icons{
+    height: 30px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/9a08586baa.js" crossorigin="anonymous"></script>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock title %} | bonga</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'base.css' %}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <form method="get" action="." class="nav-left">
+                <input name="query" type="text" placeholder="Search for username"/>
+            </form>
+            <div class="nav-right">
+
+                <li><label class="upload-btn"><input type="file" id="fileInput" name="fileInput">Upload Pics/Videos</label></li>
+                <li><a href="#" class="links"><img src="{% static 'assets/notification.png' %}" alt="img" class="nav-icons"></img></a></li>
+                <li><a href="#" class="links"><img src="{% static 'assets/comment2.png' %}" alt="img" class="nav-icons"></img></a></li>
+                <li><div class="nav-img"><img src="https://images.unsplash.com/photo-1685703206477-aa1df00a1f0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="img"/></div></li>
+                
+
+            </div>
+        </nav>
+        {% block content %}
+        
+        {% endblock content %}
+
+
+        
+        
+
+        
+        
+        <script src="" async defer></script>
+    </body>
+</html>
