@@ -1,7 +1,26 @@
+.load-btn{
+    border: 2px solid #000000;
+    display: inline-block;
+    padding: 10px 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    background-color: wheat;
+    transition: .5s;
+}
+.load-btn:hover{
+    background-color: gray;
+}
+.posts:nth-child(1){
+    display: block;
+}
+
+
 .container{
     background-color: gray;
     padding: 30px 20px;
-    height: 100vh;
+    padding-bottom: 50px;
 }
 .home-page{
     /* border: 2px solid blue; */
@@ -10,24 +29,26 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 .left-side{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     border-radius: 15px;
     flex: .5;
+}
+.posts{
+    margin-bottom: 10px;
+    border-radius: 15px;
     background-color: whitesmoke;
-
-
+    display: none;
 }
 .right-side{
-    border: 2px solid green;
+    /* border: 2px solid green; */
     border-radius: 15px;
-    max-height: 50%;
-    flex: .4;
     padding: 10px;
     background-color: whitesmoke;
-    max-height: 50vh;
-
+    position: fixed;
+    right: 5%;
 }
 .profile-tag{
     display: flex;
@@ -113,6 +134,10 @@
     justify-content: space-between;
     background-color: rgb(228, 227, 227);
 }
+.right-side-title h3{
+    margin-right: 40px;
+}
+
 .right-side-content{
     border-bottom: 2px solid rgb(170, 170, 170);
     padding: 5px 30px 0 20px;
@@ -123,4 +148,10 @@
 .recommend-follow-btn{
     border: 1px solid black;
     padding: 5px 10px;
+}
+.suggest-img{
+    margin-right: 20px;
+}
+.suggest-user-details{
+    margin-right: 20px;
 }
