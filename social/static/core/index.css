@@ -16,6 +16,34 @@
     display: block;
 }
 
+.comments-display{
+    padding: 10px;
+    border: 5px solid rgb(175, 175, 175);
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 60%;
+    /* max-width: 60%; */
+    height: 50%;
+    /* max-height: 50%; */
+    overflow-y: scroll;
+    /* display: none; */
+    background-color: rgb(211, 207, 199);
+    display: none;
+}
+.open-comments{
+    cursor: pointer;
+    transition: .5s;
+}
+.open-comments:hover{
+    background-color: wheat;
+}
+.all-comments{
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
 
 .container{
     background-color: gray;
@@ -32,7 +60,7 @@
     position: relative;
 }
 .left-side{
-    /* border: 2px solid blue; */
+    /* border: 2px solid rgb(10, 255, 2); */
     border-radius: 15px;
     flex: .5;
 }
@@ -41,6 +69,7 @@
     border-radius: 15px;
     background-color: whitesmoke;
     display: none;
+    position: relative;
 }
 .right-side{
     /* border: 2px solid green; */
@@ -50,13 +79,25 @@
     position: fixed;
     right: 5%;
 }
+.user-comment{
+    display: flex;
+    align-items: center;
+    padding: 7px;
+}
 .profile-tag{
     display: flex;
     align-items: center;
-    /* border: 2px solid pink; */
     padding: 7px;
-    /* background: wheat; */
 }
+.comment{
+    display: none;
+}
+.comment:nth-child(1),
+.comment:nth-child(2){
+    display: flex;
+}
+
+
 .profile-img{
     flex: .2;
 }
