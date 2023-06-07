@@ -14,6 +14,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% load static %}
         <link rel="stylesheet" href="{% static 'base.css' %}">
+        <script src="{% static 'base.js' %}" async defer></script>
+
+        
     </head>
     <body>
         <nav class="navbar">
@@ -25,21 +28,19 @@
                 <li><label class="upload-btn"><input type="file" id="fileInput" name="fileInput">Upload Pics/Videos</label></li>
                 <li><a href="#" class="links"><img src="{% static 'assets/notification.png' %}" alt="img" class="nav-icons"></img></a></li>
                 <li><a href="#" class="links"><img src="{% static 'assets/comment2.png' %}" alt="img" class="nav-icons"></img></a></li>
-                <li><div class="nav-img"><img src="https://images.unsplash.com/photo-1685703206477-aa1df00a1f0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="img"/></div></li>
+                <li><div class="nav-img nav-img-click"><img src="https://images.unsplash.com/photo-1685703206477-aa1df00a1f0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="img"/></div></li>
                 
-
+            </div>
+            <div class="navbar-img-click-options">
+                <li><a href="#" class="links">Account settings</a></li>
+                <li><a href="#" class="links">explore</a></li>
+                <li><a href="#" class="links">Help</a></li>
+                <li><a href="#" class="links">Log Out</a></li>
             </div>
         </nav>
         {% block content %}
         
         {% endblock content %}
-
-
         
-        
-
-        
-        
-        <script src="" async defer></script>
     </body>
 </html>

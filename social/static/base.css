@@ -3,6 +3,35 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* ---navbar-image-click-popup-functionality----- */
+.navbar-img-click-options{
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    padding: 20px;
+    position: absolute;
+    display: block;
+    top: 99%;
+    right: 2%;
+    z-index: 2;
+    display: none;
+}
+.navbar-img-click-options li{
+    list-style: none;
+    /* border: 2px solid red; */
+    margin-bottom: 10px;
+    padding: 5px 15px;
+}
+.navbar-img-click-options li:hover{
+    background-color: white;
+}
+.nav-img-click{
+    cursor: pointer;
+}
+
+
+
+/* ---base-css normal-code */
 .navbar{
     border-bottom: 2px solid rgb(196, 196, 196);
     /* padding: 20px; */
@@ -10,6 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 .nav-left input{
     padding: 10px;
