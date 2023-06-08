@@ -11,14 +11,15 @@
             <button><a href="{% url 'core:home' %}">Home</a></button>
         </div>
         <p class="settings-user">user: <strong>{{user}}</strong></p>
-        <form action="" method='post' class="settings-form">
+        <form action="" method='post' class="settings-form" enctype="multipart/form-data">
             {% csrf_token %}
-            <label class="profile-img">Profile Picture</label>
-            <input type="file" name="image"/> </br></br>
+            <label class="profile-img">Profile Picture</label></br>
+                <img src="{{user_profile.profileimg.url}}" alt="img" class="img"/></br>
+            <input type="file" name="image" value=""/> </br></br>
             <label>Bio</label></br>
-            <textarea placeholder="About yourself..." name="bio"></textarea></br>
+            <textarea placeholder="About yourself..." class="bio" name="bio">{{user_profile.bio}}</textarea></br>
             <label>Location</label></br>
-            <input type="text"  name="location"/></br></br>
+            <input type="text" value="{{user_profile.location}}"  name="location"/></br></br>
             <div class="btn">
                 <button><a href=".">Cancel</a></button>
                 <button type="submit">Save</button>
