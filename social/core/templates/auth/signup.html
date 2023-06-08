@@ -6,23 +6,37 @@
     </head>
 <body>
     <nav class="navbar-auth">
-        <h3><a href="#" class="nav-auth-logo">bonga</a></h3>
-        <a href="#" class="nav-auth-btn">Login</a>
+        <h3><a href="{% url 'core:home' %}" class="nav-auth-logo">bonga</a></h3>
+        <a href="{% url 'core:login' %}" class="nav-auth-btn">Login</a>
     </nav>
+
+    <div>
+        <style>
+            p{
+                color: red;
+            }
+        </style>
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    </div>
     
     <h1 class="nav-title">Signup</h1>
-    <form action="." method="post" class="auth-form-form">
+    <form action="" method="post" class="auth-form-form">
         {% csrf_token %}
-        <input type="text" placeholder="Username"/>
-        <input type="password" placeholder="Password"/>
-        <input type="password" placeholder="Confirm Password"/>
-        <div class="terms"><input type="checkbox" /><span> I Agree Terms & Conditions </span></div>
+        <input type="text" name="username" placeholder="Username"/>
+        <input type="email" name="email" placeholder="Email Address"/>
+        <input type="password" name="password" placeholder="Password"/>
+        <input type="password" name="password2" placeholder="Confirm Password"/>
+        {% comment %} <div class="terms"><input type="checkbox" /><span> I Agree Terms & Conditions </span></div> {% endcomment %}
         </br>
         <button>Register</button>
     </form>
+
     
     
-    <div class="animation">
+    
+    {% comment %} <div class="animation">
         <img src="{% static 'assets/bubble.png' %}" alt="img"/>
         <img src="{% static 'assets/bubble.png' %}" alt="img"/>
         <img src="{% static 'assets/bubble.png' %}" alt="img"/>
@@ -31,6 +45,6 @@
         <img src="{% static 'assets/bubble.png' %}" alt="img"/>
         <img src="{% static 'assets/bubble.png' %}" alt="img"/>
 
-    </div>
+    </div> {% endcomment %}
 </body>
 </html>

@@ -1,0 +1,22 @@
+body{
+    /* height: 90vh; */
+    background-color: gray;
+    margin: 0;
+}
+.settings{
+    background-color: rgb(207, 203, 203);
+    border-radius: 13px;
+    width: 60%;
+    margin: 5% auto 0;
+    height: 500px;
+    padding: 40px;
+}
+.settings-form{
+    /* border: 2px solid black; */
+    background-color: rgb(238, 237, 237);
+    padding: 20px;
+}
+.settings-form .btn{
+    /* border: 2px solid black; */
+    text-align: right;
+}

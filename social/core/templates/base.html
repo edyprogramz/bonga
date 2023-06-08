@@ -32,10 +32,10 @@
                 
             </div>
             <div class="navbar-img-click-options">
-                <li><a href="#" class="links">Account settings</a></li>
+                <li><a href="{% url 'core:settings' %}" class="links">Account settings</a></li>
                 <li><a href="#" class="links">explore</a></li>
                 <li><a href="#" class="links">Help</a></li>
-                <li><a href="#" class="links">Log Out</a></li>
+                <li><a href="{% url 'core:logout' %}" class="links">Log Out</a></li>
             </div>
         </nav>
         {% block content %}
