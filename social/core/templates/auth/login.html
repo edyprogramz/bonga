@@ -1,23 +1,20 @@
 <html>
     <head>
-        <title>Signup | bonga</title>
+        <title>LogIn | bonga</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'auth/authforms.css' %}">
     </head>
 <body>
     <nav class="navbar-auth">
         <h3><a href="#" class="nav-auth-logo">bonga</a></h3>
-        <a href="#" class="nav-auth-btn">Login</a>
+        <a href="#" class="nav-auth-btn">Signup</a>
     </nav>
     
-    <h1 class="nav-title">Signup</h1>
+    <h1 class="nav-title">Login</h1>
     <form action="." method="post" class="auth-form-form">
         {% csrf_token %}
         <input type="text" placeholder="Username"/>
         <input type="password" placeholder="Password"/>
-        <input type="password" placeholder="Confirm Password"/>
-        <div class="terms"><input type="checkbox" /><span> I Agree Terms & Conditions </span></div>
-        </br>
         <button>Register</button>
     </form>
     
