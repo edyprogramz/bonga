@@ -42,13 +42,13 @@
     position: absolute;
     display: block;
     top: 99%;
-    right: 10%;
+    right: 20%;
     z-index: 2;
     display: none;
 
 }
 .post-img{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     height: 100px;
     width: 100px;
     margin: 5px 0;
@@ -62,12 +62,28 @@
     object-fit: cover;
 }
 .image-div{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 70%;
     margin: auto;
     text-align: center;
+    background-color: white;
+}
+.post-btn{
+    border: 2px solid rgb(231, 231, 231);
+    background-color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 40px;
+    text-align: right;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: .5s;
 }
 
+.post-btn:hover{
+    background-color: gray;
+}
 
 /* ---base-css normal-code */
 .navbar{

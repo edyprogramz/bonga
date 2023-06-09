@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile
+from .models import Profile, Post
 
 # Create your views here.
 @login_required(login_url='core:login')
@@ -100,4 +100,15 @@ def settings(request):
  
 @login_required   
 def upload(request):
-    return redirect('core:home')
+    if request.method == 'POST':
+        user = request.user.username
+        image = request.FILES['image_upload']
+        caption = request.POST['caption']
+        
+        new_post = Post.objects.create(user=user, image=image, caption=caption)
+        new_post.save()
+        
+        return redirect('core:home')
+    else:
+        return redirect('core:home')
+    

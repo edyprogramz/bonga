@@ -9,14 +9,5 @@ divClicking.onclick = () => {
     }
 }
 
-// post -_---------
-const uploadBtnClick = document.querySelector('.upload-btn');
-const postDivClicking = document.querySelector('.upload-click-options');
 
-postDivClicking.onclick = () => {
-    if (uploadBtnClick.style.display === "block"){
-        uploadBtnClick.style.display = "none";
-    } else {
-        uploadBtnClick.style.display = "block";
-    }
-}
+// post -_---------

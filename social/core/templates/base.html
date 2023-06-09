@@ -15,6 +15,7 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'base.css' %}">
         <script src="{% static 'base.js' %}" async defer></script>
+        <script src="{% static 'post.js' %}" async defer></script>
 
         
     </head>
@@ -26,7 +27,7 @@
             <div class="nav-right">
                 
                 {% comment %} <li><label class="upload-btn"><input type="file" id="fileInput" name="fileInput">Upload Pics/Videos</label></li> {% endcomment %}
-                <li><button class="upload-btn">Upload Pics/Videos</button></li>
+                <li><button class="upload-btn upload-btn-click">Upload Pics/Videos</button></li>
                 <li><a href="#" class="links"><img src="{% static 'assets/notification.png' %}" alt="img" class="nav-icons"></img></a></li>
                 <li><a href="#" class="links"><img src="{% static 'assets/comment2.png' %}" alt="img" class="nav-icons"></img></a></li>
                 <li><div class="nav-img nav-img-click"><img src="https://images.unsplash.com/photo-1685703206477-aa1df00a1f0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="img"/></div></li>
@@ -38,23 +39,26 @@
                 <li><a href="#" class="links">Help</a></li>
                 <li><a href="{% url 'core:logout' %}" class="links">Log Out</a></li>
             </div>
-            <div class="upload-click-options">
+            <div class="upload-click-options ">
                 <p>Upload Pics or Videos</p>
-                <div class="image-div">
-                    <div class="post-img"><img src="" alt="img"/></br></div>
-                    <label class="upload-btn post-img-btn"><input type="file" id="fileInput" name="fileInput">Choose file</label></br></br>
-                    <span>Or import Video</span></br>
-                    <span>Your Video size Must be Maximum 900MB</span>
-                </div>
-                <p>Captions</p>
-                <textarea class="caption" placeholder="Say something.." name="caption"></textarea></br>
+                <form method="post" action="{% url 'core:upload' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="image-div">
+                        <div class="post-img"><img src="static/assets/upload.png" alt="img"/></br></div>
+                        <label class="upload-btn post-img-btn"><input type="file" id="fileInput" name="image_upload">Choose file</label></br></br>
+                        <span>Or import Video</span></br>
+                        <span>Your Video size Must be Maximum 900MB</span>
+                    </div>
+                    <p>Captions</p>
+                    <textarea class="caption" placeholder="Say something.." name="caption"></textarea></br>
+                    <button type="submit" class="post-btn">post</button>
+                </form>
                 
             </div>
         </nav>
         {% block content %}
         
         {% endblock content %}
-        
         
     </body>
 </html>
