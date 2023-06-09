@@ -97,3 +97,7 @@ def settings(request):
         "user": user,
         "user_profile": user_profile
     })
+ 
+@login_required   
+def upload(request):
+    return redirect('core:home')

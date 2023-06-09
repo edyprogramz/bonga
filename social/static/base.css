@@ -28,7 +28,45 @@
 .nav-img-click{
     cursor: pointer;
 }
+/* posts --------------------- */
+.caption{
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+}
+.upload-click-options{
+    border: 2px solid black;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding: 20px;
+    position: absolute;
+    display: block;
+    top: 99%;
+    right: 10%;
+    z-index: 2;
+    display: none;
 
+}
+.post-img{
+    border: 2px solid blue;
+    height: 100px;
+    width: 100px;
+    margin: 5px 0;
+    margin-bottom: 12px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.post-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.image-div{
+    border: 2px solid black;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
 
 
 /* ---base-css normal-code */
@@ -84,7 +122,8 @@
     padding: 10px;
     background-color: black;
     color: antiquewhite;
-    display: inline-block;
+    /* display: inline-block; */
+    cursor: pointer;
 }
 .upload-btn input[type="file"] {
     display: none;
