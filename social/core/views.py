@@ -8,7 +8,15 @@ from .models import Profile, Post
 # Create your views here.
 @login_required(login_url='core:login')
 def index(request):
-    return render(request, "core/index.html", {})
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user=user_object)
+    
+    posts = Post.objects.all()
+    
+    return render(request, "core/index.html", {
+        "user_profile": user_profile,
+        "posts": posts
+    })
 
 def signup(request):
     if request.method == "POST":
@@ -111,4 +119,6 @@ def upload(request):
         return redirect('core:home')
     else:
         return redirect('core:home')
+    
+    
     

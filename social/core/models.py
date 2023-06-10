@@ -2,10 +2,11 @@ from django.db import models
 # from django.contrib.auth.models import User
 import uuid
 from datetime import datetime
+from django.contrib.auth.models import User
 
 # ANOTHER WAY TO GET user
-from django.contrib.auth import get_user_model
-User = get_user_model()
+# from django.contrib.auth import get_user_model
+# User = get_user_model()
 
 # Create your models here.
 class Profile(models.Model):
@@ -20,6 +21,7 @@ class Profile(models.Model):
     
 
 class Post(models.Model):
+    # profile = models.ForeignKey(Profile, related_name="profile", on_delete=models.CASCADE)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.CharField(max_length=255)
     image = models.ImageField(upload_to="post_images")
