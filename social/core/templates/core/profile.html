@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Settings</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/setting.css' %}">
+</head>
+<body>
+    <div class="profile">
+        <a href="{% url 'core:home' %}">Home</a>
+        <h1>Profile</h1>
+        <img src="{{user_profile.profileimg.url}}" alt="img"/>
+        <p>user: {{user_profile.user.username}}</p>
+        <strong>4 followers</strong>
+        <strong>6 following</strong>
+        
+
+        {% for post in user_posts %}
+        <div>
+            <h2>Your posts</h2><span>{{user_posts_length}} posts</span>
+            <div>
+                <img src="{{post.image.url}}" alt="img"/>
+            </div>
+        </div>
+        {% endfor %}
+
+        
+    </div> 
+</body>
+</html>

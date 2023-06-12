@@ -146,6 +146,21 @@ def like_post(request):
         post.no_of_likes = post.no_of_likes - 1
         post.save()
         return redirect('core:home')
+   
+@login_required
+def profile(request, pk):
+    user_object = User.objects.get(username=pk)
+    user_profile = Profile.objects.get(user=user_object)
+    user_posts = Post.objects.filter(user=pk)
+    user_posts_length = len(user_posts)
+    
+     
+    
+    return render(request, "core/profile.html", {
+        "user_profile": user_profile,
+        "user_posts_length": user_posts_length,
+        "user_posts": user_posts
+    })
            
     
     
