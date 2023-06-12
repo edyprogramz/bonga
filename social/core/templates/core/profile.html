@@ -10,9 +10,19 @@
         <h1>Profile</h1>
         <img src="{{user_profile.profileimg.url}}" alt="img"/>
         <p>user: {{user_profile.user.username}}</p>
-        <strong>4 followers</strong>
+        <strong>{{user_follower}} followers</strong>
         <strong>6 following</strong>
-        
+        {% if user_profile.user.username != request.user.username  %}
+        <form action="{% url 'core:follow' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{user.username}}" name="follower"/>
+            <input type="hidden" value="{{user_object.username}}" name="user"/>
+            <button type="submit">{{button_text}}</button>
+        </form>
+        {% else %}
+        <button><a href="{% url 'core:settings' %}">Account Settings</a></button>
+
+        {% endif %}
 
         {% for post in user_posts %}
         <div>

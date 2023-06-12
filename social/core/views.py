@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Post, LikePost
+from .models import Profile, Post, LikePost, FollowersCount
 
 # Create your views here.
 @login_required(login_url='core:login')
@@ -153,14 +153,45 @@ def profile(request, pk):
     user_profile = Profile.objects.get(user=user_object)
     user_posts = Post.objects.filter(user=pk)
     user_posts_length = len(user_posts)
+    # user_follower = FollowersCount.objects.filter(user=pk).follower.count()
     
+    follower = request.user.username
+    user = pk
+    
+    if FollowersCount.objects.filter(follower=follower, user=user).first():
+        button_text = 'Unfollow'
+    else:
+        button_text = "Follow"
      
     
     return render(request, "core/profile.html", {
         "user_profile": user_profile,
         "user_posts_length": user_posts_length,
-        "user_posts": user_posts
+        "user_posts": user_posts,
+        # "user_follower": user_follower
+        "button_text": button_text,
     })
            
+@login_required(login_url='core:signup')
+def follow(request):
+    # follower = get_object_or_404(Profile, user=username)
+    # user = User.objects.get(user=request.user.username)
+    
+    if request.method == 'POST':
+        follower = request.POST['follower']
+        user = request.POST['user']
+        
+        if FollowersCount.objects.filter(follower=follower, user=user).first():
+            delete_follower = FollowersCount.objects.get(follower=follower, user=user)
+            delete_follower.delete()
+            # return redirect("core:profile", request.user.username )
+        else:
+            new_follower = FollowersCount.objects.create(follower=follower, user=user)
+            new_follower.save()
+            # return redirect("core:profile", request.user.username )
+            
+    
+    return redirect("core:home")
+
     
     
