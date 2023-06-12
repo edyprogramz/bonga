@@ -9,7 +9,7 @@
     <div class="home-page">
         <div class="left-side">
             <div class="posts">
-                {% for post in posts %}
+                {% for post in posts reversed %}
                 <div class="profile-tag">
                     <div class=" profile-img">
                         <div class="nav-img"><img src="{{post.user.profileimg.url}}" alt="img"/></div>
@@ -21,15 +21,14 @@
                     <img src="{{post.image.url}}" alt="img">
 
                 </div>
-                <div class="captions">
-                    <p>{{post.caption}}</p>
-                </div>
                 <div >
                     <div class="profile-reaction">
-                        <a href="#"><img src="{% static 'assets/like.png' %}" alt="img" id="like"></img> {{post.no_of_likes}} likes</a>
+                        <a href="{% url 'core:like' %}?post_id={{post.id}}"><img src="{% static 'assets/like.png' %}" alt="img" id="like"></img>{{post.no_of_likes}} likes</a>
                         <a href="#"><img src="{% static 'assets/comment.png' %}"  alt="img" id="comment"></img></a>
                         <a href="#"><img src="{% static 'assets/save.png' %}" alt="img" id="share"></img></a>
-
+                    </div>
+                    <div class="captions">
+                        <p>{{post.caption}}</p>
                     </div>
                     <div class="comments">
                         
@@ -102,6 +101,7 @@
             
             <div class="load-btn">LOAD MORE..</div>
         </div>
+        
         
 
         <div class="right-side">

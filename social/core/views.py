@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Post
+from .models import Profile, Post, LikePost
 
 # Create your views here.
 @login_required(login_url='core:login')
@@ -36,16 +36,21 @@ def signup(request):
                 user = User.objects.create_user(username=username, email=email, password=password)
                 user.save()
                 
-                #log user in & redirect to settings page
+                
+                #log user in 
                 user_login = auth.authenticate(username=username, password=password)
                 auth.login(request, user_login)
-                return redirect('core:settings')
                 
-                #create a profile object for new user
+                
+                #create a profile object for new user & redirect to settings page
                 user_model = User.objects.get(username=username)
                 new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
                 new_profile.save()
-                return redirect('core:signup')
+                
+                
+                return redirect('core:settings')
+                
+                # return redirect('core:signup')
         else:
             messages.info(request, 'Password Not Matching')
             return redirect('core:signup')
@@ -120,5 +125,27 @@ def upload(request):
     else:
         return redirect('core:home')
     
+@login_required   
+def like_post(request):
+    username = request.user.username
+    post_id = request.GET.get('post_id')
+    
+    post = Post.objects.get(id=post_id)
+    
+    like_filter = LikePost.objects.filter(post_id=post_id, username=username).first()
+    
+    if like_filter == None:
+        new_like = LikePost.objects.create(post_id=post_id, username=username)
+        new_like.save()
+        post.no_of_likes = post.no_of_likes + 1
+        post.save()
+        return redirect('core:home')
+    
+    else:
+        like_filter.delete()
+        post.no_of_likes = post.no_of_likes - 1
+        post.save()
+        return redirect('core:home')
+           
     
     
